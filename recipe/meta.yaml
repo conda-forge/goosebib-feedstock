@@ -1,6 +1,6 @@
 {% set name = "goosebib" %}
-{% set version = "0.1.1" %}
-{% set sha256 = "886bd2daeb8ce9e218015b5cc4e5c532008333708bffec4aa137be305dcb6c33" %}
+{% set version = "0.2.0" %}
+{% set sha256 = "98fe2b33920ea6e8f45323f6929ff55597bcff2a50ad8b0b840e81b3058e759d" %}
 
 package:
   name: {{ name|lower }}
