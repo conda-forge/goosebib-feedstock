@@ -30,10 +30,14 @@ requirements:
     - setuptools
   run:
     - python >=3
-    - docopt
-    - click
-    - requests
     - bibtexparser
+    - click
+    - docopt
+    - gitpython
+    - numpy
+    - pyyaml
+    - requests
+    - setuptools_scm
 
 test:
   commands:
