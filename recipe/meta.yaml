@@ -13,6 +13,7 @@ source:
 build:
   number: 0
   noarch: python
+  script_env: SETUPTOOLS_SCM_PRETEND_VERSION={{ version }}
   script: {{ PYTHON }} -m pip install . --no-deps --ignore-installed --no-cache-dir -vvv
   entry_points:
     - GbibCheckAuthors = GooseBib.cli.GbibCheckAuthors:main
