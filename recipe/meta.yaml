@@ -1,6 +1,6 @@
 {% set name = "goosebib" %}
-{% set version = "0.2.0" %}
-{% set sha256 = "98fe2b33920ea6e8f45323f6929ff55597bcff2a50ad8b0b840e81b3058e759d" %}
+{% set version = "0.3.5" %}
+{% set sha256 = "48183447c3bc7373656d4c9a98d6fb0187995dab029f74480b0b355980997a2b" %}
 
 package:
   name: {{ name|lower }}
@@ -13,7 +13,7 @@ source:
 build:
   number: 0
   noarch: python
-  script: "{{ PYTHON }} -m pip install . --no-deps --ignore-installed --no-cache-dir -vvv"
+  script: {{ PYTHON }} -m pip install . --no-deps --ignore-installed --no-cache-dir -vvv
   entry_points:
     - GbibCheckAuthors = GooseBib.cli.GbibCheckAuthors:main
     - GbibCheckLink = GooseBib.cli.GbibCheckLink:main
@@ -50,8 +50,8 @@ about:
   license: MIT
   license_family: MIT
   license_file: LICENSE
-  summary: 'Simple command-line tools to clean-up BibTeX files.'
-  description: 'Simple command-line tools to clean-up BibTeX files.'
+  summary: Simple command-line tools to clean-up BibTeX files.
+  description: Simple command-line tools to clean-up BibTeX files.
   doc_url: https://github.com/tdegeus/GooseBib
   dev_url: https://github.com/tdegeus/GooseBib
 
