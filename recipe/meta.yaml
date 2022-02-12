@@ -42,6 +42,8 @@ requirements:
     - requests
 
 test:
+  requires:
+    - git
   imports:
     - {{ name }}
   commands:
