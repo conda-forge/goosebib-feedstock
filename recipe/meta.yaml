@@ -51,8 +51,10 @@ test:
   imports:
     - {{ name }}
   commands:
-    - GbibClean --version 2>&1 | grep {{ version }}
-    - GbibDiscover --version 2>&1 | grep {{ version }}
+    - pip check
+    - python -c "import {{ name }}; print({{ name }}.version)"
+    - GbibClean --version | grep {{ version }}
+    - GbibDiscover --version | grep {{ version }}
     - GbibCheckAuthors --help
     - GbibCheckKeys --help
     - GbibCheckLink --help
