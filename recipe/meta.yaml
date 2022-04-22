@@ -16,10 +16,11 @@ build:
   script_env: SETUPTOOLS_SCM_PRETEND_VERSION={{ version }}
   script: {{ PYTHON }} -m pip install . -vv
   entry_points:
+    - GbibClean = {{ name }}.bibtex:GbibClean
+    - GbibDiscover = {{ name }}.bibtex:GbibDiscover
     - GbibCheckAuthors = {{ name }}.cli.GbibCheckAuthors:main
     - GbibCheckKeys = {{ name }}.cli.GbibCheckKeys:main
     - GbibCheckLink = {{ name }}.cli.GbibCheckLink:main
-    - GbibClean = {{ name }}.bibtex:GbibClean
     - GbibList = {{ name }}.cli.GbibList:main
     - GbibParse = {{ name }}.cli.GbibParse:main
     - GbibSelect = {{ name }}.cli.GbibSelect:main
@@ -32,6 +33,7 @@ requirements:
     - python >=3
     - setuptools_scm
   run:
+    - arxiv
     - bibtexparser
     - click
     - docopt
@@ -40,17 +42,20 @@ requirements:
     - python >=3
     - pyyaml
     - requests
+    - tqdm
 
 test:
   requires:
     - git
+    - pip
   imports:
     - {{ name }}
   commands:
+    - GbibClean --version 2>&1 | grep {{ version }}
+    - GbibDiscover --version 2>&1 | grep {{ version }}
     - GbibCheckAuthors --help
     - GbibCheckKeys --help
     - GbibCheckLink --help
-    - GbibClean --help
     - GbibList --help
     - GbibParse --help
     - GbibSelect --help
