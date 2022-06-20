@@ -1,6 +1,6 @@
 {% set name = "GooseBib" %}
 {% set org = "tdegeus" %}
-{% set version = "0.6.2" %}
+{% set version = "0.7.0" %}
 
 package:
   name: {{ name|lower }}
@@ -8,7 +8,7 @@ package:
 
 source:
   url: https://github.com/{{ org }}/{{ name }}/archive/v{{ version }}.tar.gz
-  sha256: 40096b18a0bc76d59c9b9c63165db6bc30a07bb06f36c71db68429d12ab31678
+  sha256: a48c8416dc335f30b76288b3d37b9ce06a3b6f0a04c1f28bf923645fcc774bda
 
 build:
   number: 0
