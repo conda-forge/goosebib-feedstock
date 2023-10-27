@@ -29,7 +29,8 @@ requirements:
   host:
     - pip
     - python >=3.6
-    - setuptools_scm
+    - setuptools >=45
+    - setuptools_scm >=6.2
   run:
     - arxiv
     - bibtexparser
