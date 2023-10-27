@@ -1,14 +1,12 @@
-{% set name = "GooseBib" %}
-{% set org = "tdegeus" %}
-{% set version = "0.8.1" %}
+{% set version = "0.9.0" %}
 
 package:
-  name: {{ name|lower }}
+  name: goosebib
   version: {{ version }}
 
 source:
-  url: https://github.com/{{ org }}/{{ name }}/archive/v{{ version }}.tar.gz
-  sha256: 5883e0397242b1d441b5a523a9f4790e88ebef1d036855fd91f3e369ab6c6ca6
+  url: https://github.com/tdegeus/GooseBib/archive/v{{ version }}.tar.gz
+  sha256: 4ad17d1489ba5accf888564640d3846042e166e4c41479aab811355e8dbdf27d
 
 build:
   number: 0
@@ -16,22 +14,23 @@ build:
   script_env: SETUPTOOLS_SCM_PRETEND_VERSION={{ version }}
   script: {{ PYTHON }} -m pip install . -vv
   entry_points:
-    - GbibClean = {{ name }}.bibtex:GbibClean
-    - GbibDiscover = {{ name }}.bibtex:GbibDiscover
-    - GbibCheckAuthors = {{ name }}.cli.GbibCheckAuthors:main
-    - GbibCheckKeys = {{ name }}.cli.GbibCheckKeys:main
-    - GbibCheckLink = {{ name }}.cli.GbibCheckLink:main
-    - GbibList = {{ name }}.cli.GbibList:main
-    - GbibParse = {{ name }}.cli.GbibParse:main
-    - GbibSelect = {{ name }}.cli.GbibSelect:main
-    - GbibSelectAlias = {{ name }}.cli.GbibSelectAlias:main
-    - GbibShowAuthorRename = {{ name }}.bibtex:GbibShowAuthorRename
+    - GbibClean = GooseBib.bibtex:GbibClean
+    - GbibDiscover = GooseBib.bibtex:GbibDiscover
+    - GbibCheckAuthors = GooseBib.cli.GbibCheckAuthors:main
+    - GbibCheckKeys = GooseBib.cli.GbibCheckKeys:main
+    - GbibCheckLink = GooseBib.cli.GbibCheckLink:main
+    - GbibList = GooseBib.cli.GbibList:main
+    - GbibParse = GooseBib.cli.GbibParse:main
+    - GbibSelect = GooseBib.cli.GbibSelect:main
+    - GbibSelectAlias = GooseBib.cli.GbibSelectAlias:main
+    - GbibShowAuthorRename = GooseBib.bibtex:GbibShowAuthorRename
 
 requirements:
   host:
     - pip
-    - python >=3
-    - setuptools_scm
+    - python >=3.6
+    - setuptools >=45
+    - setuptools_scm >=6.2
   run:
     - arxiv
     - bibtexparser
@@ -39,20 +38,17 @@ requirements:
     - docopt
     - gitpython
     - numpy
-    - python >=3
+    - python >=3.6
     - pyyaml
     - requests
     - tqdm
 
 test:
-  requires:
-    - git
-    - pip
   imports:
-    - {{ name }}
+    - GooseBib
   commands:
     - pip check
-    - python -c "import {{ name }}; print({{ name }}.version)"
+    - python -c "import GooseBib; assert GooseBib.version == '{{ version }}'"
     - GbibClean --version | grep {{ version }}
     - GbibDiscover --version | grep {{ version }}
     - GbibCheckAuthors --help
@@ -63,16 +59,19 @@ test:
     - GbibSelect --help
     - GbibSelectAlias --help
     - GbibShowAuthorRename --help
+  requires:
+    - git
+    - pip
 
 about:
-  home: https://github.com/{{ org }}/{{ name }}
+  home: https://github.com/tdegeus/GooseBib
   license: MIT
   license_family: MIT
   license_file: LICENSE
   summary: Simple command-line tools to clean-up BibTeX files.
   description: Simple command-line tools to clean-up BibTeX files.
-  doc_url: https://github.com/{{ org }}/{{ name }}
-  dev_url: https://github.com/{{ org }}/{{ name }}
+  doc_url: https://github.com/tdegeus/GooseBib
+  dev_url: https://github.com/tdegeus/GooseBib
 
 extra:
   recipe-maintainers:
