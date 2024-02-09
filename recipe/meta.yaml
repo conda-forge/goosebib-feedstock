@@ -1,4 +1,4 @@
-{% set version = "0.9.2" %}
+{% set version = "0.9.3" %}
 
 package:
   name: goosebib
@@ -6,7 +6,7 @@ package:
 
 source:
   url: https://github.com/tdegeus/GooseBib/archive/v{{ version }}.tar.gz
-  sha256: 1f320770fdde00a33b88c0eb46c547031f25393700d5b31c93771f50482693a9
+  sha256: e6aa1f9b73ae5f53be591da8c11911f5383b4de434ebad87b95918a6dfa80915
 
 build:
   number: 0
