@@ -9,7 +9,7 @@ source:
   sha256: 99724c7d082fa6f205270e2a2a30dd01ce4106acb428d9930d7eb936d0bf92cd
 
 build:
-  number: 0
+  number: 1
   noarch: python
   script_env: SETUPTOOLS_SCM_PRETEND_VERSION={{ version }}
   script: {{ PYTHON }} -m pip install . -vv
@@ -28,7 +28,7 @@ build:
 requirements:
   host:
     - pip
-    - python >=3.6
+    - python {{ python_min }}
     - setuptools >=45
     - setuptools_scm >=6.2
   run:
@@ -38,7 +38,7 @@ requirements:
     - docopt
     - gitpython
     - numpy
-    - python >=3.6
+    - python >={{ python_min }}
     - pyyaml
     - requests
     - tqdm
@@ -62,6 +62,7 @@ test:
   requires:
     - git
     - pip
+    - python {{ python_min }}
 
 about:
   home: https://github.com/tdegeus/GooseBib
